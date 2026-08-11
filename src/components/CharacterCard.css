@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+  padding: 32px;
+  background: #1a1410;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201, 169, 97, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.04), transparent 45%);
+  font-family: "EB Garamond", serif;
+}
+
+.character-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.15)),
+    #2b2118;
+  border: 1px solid rgba(201, 169, 97, 0.28);
+  border-radius: 6px;
+  padding: 28px 22px 24px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 12px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.character-card::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(201, 169, 97, 0.15);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+.character-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent, #c9a961);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 16px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(201, 169, 97, 0.12);
+}
+
+.character-card__seal {
+  position: absolute;
+  top: -14px;
+  right: 18px;
+  width: 52px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent, #c9a961);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 75%, 50% 100%, 0% 75%, 0% 20%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.character-card__seal-number {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  color: #1a1410;
+}
+
+.character-card__seal-label {
+  font-family: "EB Garamond", serif;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1410;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.character-card__body {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.character-card__name {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 21px;
+  color: #ece1c8;
+  margin: 0 0 14px;
+  letter-spacing: 0.01em;
+}
+
+.character-card__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.character-card__divider-line {
+  height: 1px;
+  width: 36px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.5));
+}
+
+.character-card__divider-line:last-child {
+  background: linear-gradient(90deg, rgba(201, 169, 97, 0.5), transparent);
+}
+
+.character-card__divider-gem {
+  width: 6px;
+  height: 6px;
+  background: var(--accent, #c9a961);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.character-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #c9bfa4;
+  font-style: italic;
+}
+
+.character-card__race {
+  color: #ece1c8;
+}
+
+.character-card__meta-sep {
+  color: var(--accent, #c9a961);
+  font-style: normal;
+}
+
+.character-card__class {
+  color: var(--accent, #c9a961);
+  font-weight: 600;
+  font-style: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character-card {
+    transition: none;
+  }
+}
