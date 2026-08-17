@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "EB Garamond", serif;
+  background: #1a1410;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201, 169, 97, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.04), transparent 45%);
+}
+
+.home__link {
+  --accent: #c9a961;
+
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+  padding: 14px 36px;
+
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1a1410;
+
+  background: linear-gradient(180deg, #ddb974, var(--accent));
+  border: 1px solid rgba(201, 169, 97, 0.6);
+  border-radius: 4px;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 8px 18px rgba(0, 0, 0, 0.4);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.home__link:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.35) inset,
+    0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+.home__link:active {
+  transform: translateY(-1px);
+  filter: brightness(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home__link {
+    transition: none;
+  }
+}

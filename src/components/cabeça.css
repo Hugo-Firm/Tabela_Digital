@@ -1,0 +1,19 @@
+
+header {
+gap: 28px;
+  padding: 32px;
+  background: #1a1410;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201, 169, 97, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.04), transparent 45%);
+  font-family: "EB Garamond", serif;
+}
+
+h1 {
+  font-size: 90px;
+  color: #c9a961;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "EB Garamond", serif;
+    display: flex;
+    justify-content: center;
+}

@@ -61,6 +61,10 @@ const SAMPLE_CHARACTERS = [
   { name: "Brother Aldric", race: "Anão da colina", characterClass: "Clérigo", level: 9 },
   { name: "Fennick Sussurrante", race: "Halfling", characterClass: "Bardo", level: 3 },
   { name: "Seraphine Alvorada", race: "Tiefling", characterClass: "Paladino", level: 15 },
+  { name: "Kael Malfatti", race: "Tiefling", characterClass: "Bruxo", level: 7 },
+  { name: "Lyra Sombrea", race: "Elfa", characterClass: "Monge", level: 10 },
+  { name: "Darius Tempt", race: "Humano", characterClass: "Guerreiro", level: 8 },
+  { name: "Thalia Moonshadow", race: "Meio-orc", characterClass: "Druida", level: 6 },
 ];
 
 export default function CharacterGrid({ characters = SAMPLE_CHARACTERS }) {
