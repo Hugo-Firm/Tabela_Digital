@@ -6,14 +6,14 @@ import './tabela.css';
 export function Tabela() {
   return (
     <>
-    <Link to="/" className="home__link">
-      Ir para Home
-    </Link>
     <div>
       <Cabeca />
       <CharacterGrid />
     </div>
 
+    <Link to="/" className="home__link">
+      Ir para Home
+    </Link>
   </>
   );
 }

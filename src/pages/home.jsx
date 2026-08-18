@@ -21,6 +21,10 @@ export default function Home() {
       <Link to="/tabela" className="home__link">
         Ir para Tabela
       </Link>
+
+      <Link to="/DiceRoller" className="home__link">
+        Ir para Dados
+      </Link>
     </div>
   );
 }

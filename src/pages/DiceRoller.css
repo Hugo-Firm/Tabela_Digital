@@ -1,0 +1,319 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap");
+
+.dice-page {
+  --accent: #c9a961;
+
+  min-height: 100vh;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: #1a1410;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(201, 169, 97, 0.05), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(201, 169, 97, 0.04), transparent 45%);
+
+  font-family: "EB Garamond", serif;
+}
+
+.dice-page__title {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #ece1c8;
+  letter-spacing: 0.02em;
+  margin: 0 0 18px;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.dice-page__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.dice-page__divider-line {
+  height: 1px;
+  width: 50px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.5));
+}
+
+.dice-page__divider-line:last-child {
+  background: linear-gradient(90deg, rgba(201, 169, 97, 0.5), transparent);
+}
+
+.dice-page__divider-gem {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.dice-page__subtitle {
+  font-style: italic;
+  font-size: 16px;
+  color: #c9bfa4;
+  margin: 0 0 40px;
+  text-align: center;
+}
+
+
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 22px;
+  width: 100%;
+  max-width: 900px;
+}
+
+.dice-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 22px 12px 18px;
+  cursor: pointer;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.15)),
+    #2b2118;
+  border: 1px solid rgba(201, 169, 97, 0.28);
+  border-radius: 6px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.04) inset,
+    0 12px 24px rgba(0, 0, 0, 0.35);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.dice-card:hover:not(:disabled) {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 16px 32px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(201, 169, 97, 0.12);
+}
+
+.dice-card:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.dice-card--rolling .dice-icon {
+  animation: dice-spin 0.65s ease-in-out;
+}
+
+.dice-icon {
+  width: 56px;
+  height: 56px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.dice-card__label {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #ece1c8;
+  letter-spacing: 0.05em;
+}
+
+@keyframes dice-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(200deg) scale(1.15);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+
+.dice-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 7, 5, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+  animation: dice-fade-in 0.2s ease;
+}
+
+@keyframes dice-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dice-modal {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  padding: 40px 28px 28px;
+  text-align: center;
+
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.2)),
+    #2b2118;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 8px;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.05) inset,
+    0 20px 48px rgba(0, 0, 0, 0.55);
+
+  animation: dice-pop-in 0.25s ease;
+}
+
+@keyframes dice-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dice-modal__seal {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 74px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 75%, 50% 100%, 0% 75%, 0% 20%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dice-modal__seal-number {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  color: #1a1410;
+}
+
+.dice-modal__seal-label {
+  font-family: "EB Garamond", serif;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1410;
+  opacity: 0.75;
+  margin-top: 2px;
+}
+
+.dice-modal__title {
+  margin: 22px 0 14px;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #ece1c8;
+  letter-spacing: 0.02em;
+}
+
+.dice-modal__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.dice-modal__divider-line {
+  height: 1px;
+  width: 36px;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.5));
+}
+
+.dice-modal__divider-line:last-child {
+  background: linear-gradient(90deg, rgba(201, 169, 97, 0.5), transparent);
+}
+
+.dice-modal__divider-gem {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.dice-modal__text {
+  font-size: 15px;
+  color: #c9bfa4;
+  margin: 0 0 6px;
+}
+
+.dice-modal__text strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.dice-modal__value {
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: var(--accent);
+  margin: 4px 0 24px;
+  text-shadow: 0 2px 10px rgba(201, 169, 97, 0.3);
+}
+
+.dice-modal__close {
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  color: #1a1410;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #ddb974, var(--accent));
+  border: 1px solid rgba(201, 169, 97, 0.6);
+  border-radius: 4px;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 8px 18px rgba(0, 0, 0, 0.4);
+
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.dice-modal__close:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dice-card,
+  .dice-modal,
+  .dice-modal-overlay,
+  .dice-card--rolling .dice-icon,
+  .dice-modal__close {
+    animation: none;
+    transition: none;
+  }
+}
